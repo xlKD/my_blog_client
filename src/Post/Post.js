@@ -59,7 +59,7 @@ class Post extends Component {
 				<div className="pt-5">
 				  <p>
                     Categories:  <a href="#">{post.category}</a> Tags:  {post.tags.map(function(tag, index) {
-                      return <a href="#">#{tag}</a>
+                      return <a href="#" key={tag}>#{tag}</a>
                     })}
                   </p>
 				</div>

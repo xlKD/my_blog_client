@@ -63,7 +63,7 @@ class TagsList extends Component {
           <h3 className="heading">Tags</h3>
           <ListOfTags>
             {tags.map(function(tag, index) {
-              return <li><a href="#">#{tag.name}</a></li>
+              return <li key={tag._id}><a href="#">#{tag.name}</a></li>
             })}
           </ListOfTags>
         </Tags>

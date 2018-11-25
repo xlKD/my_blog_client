@@ -91,7 +91,7 @@ class Posts extends Component {
                           <h4>{post.title}</h4>
                           <div className="post-meta">
 							<Category>{post.category}</Category>
-                            <span class="mr-2">{post.created_at}</span>
+                            <span className="mr-2">{post.created_at}</span>
                           </div>
                         </div>
                       </Link>
