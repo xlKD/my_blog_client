@@ -67,7 +67,7 @@ class Posts extends Component {
   }
 
   async componentDidMount() {
-    const posts = (await axios.get('http://127.0.0.1:3000/posts/api')).data;
+    const posts = (await axios.get('https://127.0.0.1:3000/posts/api')).data;
     this.setState({
       posts,
     });
