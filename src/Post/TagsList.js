@@ -48,7 +48,7 @@ class TagsList extends Component {
   }
 
   async componentDidMount() {
-    const tags = (await axios.get('http://localhost:3000/api/tags')).data;
+    const tags = (await axios.get('https://admin.hung-nq.tk/api/tags')).data;
     this.setState({
       tags,
     });

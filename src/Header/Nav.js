@@ -111,7 +111,7 @@ class Nav extends Component {
   }
 
   async componentDidMount() {
-    const categories = (await axios.get(`http://127.0.0.1:3000/api/categories`)).data;
+    const categories = (await axios.get(`https://admin.hung-nq.tk/api/categories`)).data;
     this.setState({
       categories,
     });
@@ -160,7 +160,7 @@ class Nav extends Component {
                       <DropdownMenu className="dropdown-menu show" aria-labelledby="dropdown04">
                         {
                           this.state.categories !== null && this.state.categories.map(category => (
-                      	    <a className="dropdown-item" href="#">{category.name}</a>
+                      	    <a className="dropdown-item" key={category._id} href="#">{category.name}</a>
                           ))
                         }
                       </DropdownMenu>
