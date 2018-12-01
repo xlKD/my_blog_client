@@ -39,8 +39,7 @@ function Bio() {
         <img src="http://localhost:3000/images/person_1.jpg" alt="Image Placeholder" className="img-fluid" />
         <div className="bio-body">
           <h2>NGUYEN QUOC HUNG</h2>
-          <p>Husband, Web developer, Figure Collector, Noodle Lover</p>
-          <p><a href="#" className="btn btn-primary btn-sm">Read my bio</a></p>
+          <p>Husband, Web developer, PC gamer, Figure Collector and Noodle Lover</p>
           <p className="social">
             <a href="#" className="p-2"><span className="fa fa-facebook"></span></a>
             <a href="#" className="p-2"><span className="fa fa-twitter"></span></a>

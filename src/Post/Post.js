@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import hljs from 'highlight.js';
+import sql from 'highlight.js/lib/languages/sql';
 import RecentPosts from './RecentPosts';
 import TagsList from './TagsList';
 import Bio from '../Middle/Bio';
@@ -36,6 +38,9 @@ class Post extends Component {
     this.setState({
       post,
     });
+
+    hljs.registerLanguage('sql', sql);
+    hljs.initHighlighting();
   }
 
   render() {
@@ -48,7 +53,7 @@ class Post extends Component {
 		  <div className="container">
 			
 			<div className="row blog-entries">
-			  <MainContent className="col-12 main-content">
+			  <MainContent className="col-md-10 offset-md-1 main-content">
 				<h1 className="mb-4">{post.title}</h1>
 				<div className="post-meta">
 				  <Category>{post.category}</Category>
@@ -58,9 +63,14 @@ class Post extends Component {
 				
 				<div className="pt-5">
 				  <p>
-                    Categories:  <a href="#">{post.category}</a> Tags:  {post.tags.map(function(tag, index) {
-                      return <a href="#" key={tag}>#{tag}</a>
-                    })}
+                    Categories:  <a href="#">{post.category}</a> Tags:  {
+                      Array.isArray(post.tags) ?
+                        post.tags.forEach(function(tag, index) {
+                          return <a href="#" key={tag}>#{tag}</a>
+                        })
+                      :
+                        <a href="#" key={post.tags}>#{post.tags}</a>
+                    }
                   </p>
 				</div>
 			  </MainContent>
