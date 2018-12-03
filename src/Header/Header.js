@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import Nav from './Nav';
+const Nav = React.lazy(() => import('./Nav'));
 
 function Header() {
   const Header = styled.header`
@@ -109,7 +109,9 @@ function Header() {
         </div>
       </TopBar>
 
-      <Nav />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Nav />
+      </Suspense>
     </Header>
   );
 }

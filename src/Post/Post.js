@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component, Suspense } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import hljs from 'highlight.js';
 import sql from 'highlight.js/lib/languages/sql';
-import RecentPosts from './RecentPosts';
-import TagsList from './TagsList';
-import Bio from '../Middle/Bio';
+const RecentPosts = React.lazy(() => import('./RecentPosts'));
+const TagsList = React.lazy(() => import('./TagsList'));
+const Bio = React.lazy(() => import('../Middle/Bio'));
 
 const MainContent = styled.div`
   padding-top: 5em;
@@ -65,7 +65,7 @@ class Post extends Component {
 				  <p>
                     Categories:  <a href="#">{post.category}</a> Tags:  {
                       Array.isArray(post.tags) ?
-                        post.tags.forEach(function(tag, index) {
+                        post.tags.map(function(tag, index) {
                           return <a href="#" key={tag}>#{tag}</a>
                         })
                       :
@@ -76,12 +76,15 @@ class Post extends Component {
 			  </MainContent>
 
 			  <div className="col-12 sidebar">
-                <Bio />
-
-                <RecentPosts />
-
-                <TagsList />
-
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Bio />
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <RecentPosts />
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <TagsList />
+                </Suspense>
 			  </div>
 			</div>
 		  </div>

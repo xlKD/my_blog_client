@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom';
+import Loadable from 'react-loadable';
 import Header from './Header/Header';
-import Posts from './Posts/Posts';
-import Post from './Post/Post';
 import Footer from './Footer/Footer';
 import { createGlobalStyle } from 'styled-components';
+
+function Loading() {
+  return <h3>Loading...</h3>;
+}
+
+const Post = Loadable({
+  loader: () =>
+    import ('./Post/Post'),
+  loading: Loading
+});
+
+const Posts = Loadable({
+  loader: () =>
+    import ('./Posts/Posts'),
+  loading: Loading
+});
 
 const GlobalStyle = createGlobalStyle`
   body {
