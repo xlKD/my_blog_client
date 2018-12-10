@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 const Nav = React.lazy(() => import('./Nav'));
 
@@ -95,21 +94,21 @@ function Header() {
         <div className="container">
           <div className="row">
             <div className="col-9 social">
-              <a href="#"><span className="fa fa-twitter"></span></a>
-              <a href="#"><span className="fa fa-facebook"></span></a>
-              <a href="#"><span className="fa fa-instagram"></span></a>
+              <a href="https://twitter.com/hung_xlkd" target="_brank"><span className="fa fa-twitter"></span></a>
+              <a href="https://www.facebook.com/marc0.zeus" target="_brank"><span className="fa fa-facebook"></span></a>
+              <a href="https://www.instagram.com/hungxlkd/" target="_brank"><span className="fa fa-instagram"></span></a>
             </div>
             <SearchTop className="col-3">
               <form action="#" className="search-top-form">
                 <span className="icon fa fa-search"></span>
-                <input type="text" id="s" placeholder="Type keyword to search..." />
+                <input type="text" id="s" placeholder="-WIP-" />
               </form>
             </SearchTop>
           </div>
         </div>
       </TopBar>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>...</div>}>
         <Nav />
       </Suspense>
     </Header>

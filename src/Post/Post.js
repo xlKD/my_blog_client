@@ -8,7 +8,7 @@ const TagsList = React.lazy(() => import('./TagsList'));
 const Bio = React.lazy(() => import('../Middle/Bio'));
 
 const MainContent = styled.div`
-  padding-top: 5em;
+  padding-top: 3em;
   padding-bottom: 5em;
 `;
 
@@ -34,7 +34,7 @@ class Post extends Component {
 
   async componentDidMount() {
     const { match: { params } } = this.props;
-    const post = (await axios.get(`https://admin.hung-nq.tk/posts/api/${params.postId}`)).data;
+    const post = (await axios.get(`https://admin.hung-nq.tk/api/posts/${params.postId}`)).data;
     this.setState({
       post,
     });
@@ -45,7 +45,7 @@ class Post extends Component {
 
   render() {
     const {post} = this.state;
-    if (post === null) return <p>Loading ...</p>;
+    if (post === null) return <div>...</div>;
 
     return (
 	  <div>
@@ -76,13 +76,13 @@ class Post extends Component {
 			  </MainContent>
 
 			  <div className="col-12 sidebar">
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div>...</div>}>
                   <Bio />
                 </Suspense>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div>...</div>}>
                   <RecentPosts />
                 </Suspense>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div>...</div>}>
                   <TagsList />
                 </Suspense>
 			  </div>

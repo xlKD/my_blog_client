@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 function Bio() {
@@ -36,7 +35,7 @@ function Bio() {
   return (
     <BioBox>
       <Bio className="text-center">
-        <img src="http://localhost:3000/images/person_1.jpg" alt="Image Placeholder" className="img-fluid" />
+        <img src="http://localhost:3000/images/person_1.jpg" className="img-fluid" alt="" />
         <div className="bio-body">
           <h2>NGUYEN QUOC HUNG</h2>
           <p>Husband, Web developer, PC gamer, Figure Collector and Noodle Lover</p>
@@ -44,7 +43,6 @@ function Bio() {
             <a href="#" className="p-2"><span className="fa fa-facebook"></span></a>
             <a href="#" className="p-2"><span className="fa fa-twitter"></span></a>
             <a href="#" className="p-2"><span className="fa fa-instagram"></span></a>
-            <a href="#" className="p-2"><span className="fa fa-youtube-play"></span></a>
           </p>
         </div>
       </Bio>

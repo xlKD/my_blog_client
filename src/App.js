@@ -24,7 +24,7 @@ const Posts = Loadable({
 const GlobalStyle = createGlobalStyle`
   body {
 	background: #fff;
-	font-family: "Josefin Sans", arial, sans-serif;
+	font-family: "Tahoma", arial, sans-serif;
     font-weight: 300;
     font-size: 18px;
     line-height: 1.9;

@@ -67,7 +67,7 @@ class Posts extends Component {
   }
 
   async componentDidMount() {
-    const posts = (await axios.get('https://admin.hung-nq.tk/posts/api')).data;
+    const posts = (await axios.get('https://admin.hung-nq.tk/api/posts')).data;
     this.setState({
       posts,
     });
