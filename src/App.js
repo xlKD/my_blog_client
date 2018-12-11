@@ -6,7 +6,7 @@ import Footer from './Footer/Footer';
 import { createGlobalStyle } from 'styled-components';
 
 function Loading() {
-  return <h3>Loading...</h3>;
+  return <div>...</div>;
 }
 
 const Post = Loadable({

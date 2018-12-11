@@ -4,11 +4,11 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const SidebarBox = styled.div`
-    margin-bottom: 4em;
-    font-size: 15px;
-    width: 100%;
-    float: left;
-    background: #fff;
+  margin-bottom: 4em;
+  font-size: 15px;
+  width: 100%;
+  float: left;
+  background: #fff;
 `;
 
 const PostEntrySidebar = styled.div`
@@ -56,7 +56,6 @@ const Category = styled.div`
   margin-right: 10px;
 `;
 
-
 class Posts extends Component {
   constructor(props) {
     super(props);
@@ -67,7 +66,9 @@ class Posts extends Component {
   }
 
   async componentDidMount() {
-    const posts = (await axios.get('https://admin.hung-nq.tk/api/posts')).data;
+    const getUrl = 'https://admin.hung-nq.tk/api/posts' + this.props.location.search;
+    const posts = (await axios.get(getUrl)).data;
+
     this.setState({
       posts,
     });
@@ -82,7 +83,7 @@ class Posts extends Component {
               <SidebarBox>
 				<PostEntrySidebar>
                 <ul>
-                {this.state.posts === null && <p>Loading posts...</p>}
+                {this.state.posts === null && <div>...</div>}
                 {
                   this.state.posts && this.state.posts.map(post => (
                     <li key={post._id}>

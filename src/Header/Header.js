@@ -96,7 +96,7 @@ function Header() {
             <div className="col-9 social">
               <a href="https://twitter.com/hung_xlkd" target="_brank"><span className="fa fa-twitter"></span></a>
               <a href="https://www.facebook.com/marc0.zeus" target="_brank"><span className="fa fa-facebook"></span></a>
-              <a href="https://www.instagram.com/hungxlkd/" target="_brank"><span className="fa fa-instagram"></span></a>
+              <a href="https://www.instagram.com/hungxlkd" target="_brank"><span className="fa fa-instagram"></span></a>
             </div>
             <SearchTop className="col-3">
               <form action="#" className="search-top-form">

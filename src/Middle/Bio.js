@@ -40,9 +40,9 @@ function Bio() {
           <h2>NGUYEN QUOC HUNG</h2>
           <p>Husband, Web developer, PC gamer, Figure Collector and Noodle Lover</p>
           <p className="social">
-            <a href="#" className="p-2"><span className="fa fa-facebook"></span></a>
-            <a href="#" className="p-2"><span className="fa fa-twitter"></span></a>
-            <a href="#" className="p-2"><span className="fa fa-instagram"></span></a>
+            <a href="https://twitter.com/hung_xlkd" className="p-2"><span className="fa fa-facebook"></span></a>
+            <a href="https://www.instagram.com/hungxlkd" className="p-2"><span className="fa fa-twitter"></span></a>
+            <a href="https://twitter.com/hung_xlkd" className="p-2"><span className="fa fa-instagram"></span></a>
           </p>
         </div>
       </Bio>

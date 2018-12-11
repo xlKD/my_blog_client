@@ -56,14 +56,14 @@ class TagsList extends Component {
 
   render() {
     const {tags} = this.state;
-    if (tags === null) return <p>Loading ...</p>;
+    if (tags === null) return <div>...</div>;
 
     return (
         <Tags>
           <h3 className="heading">Tags</h3>
           <ListOfTags>
             {tags.map(function(tag, index) {
-              return <li key={tag._id}><a href="#">#{tag.name}</a></li>
+              return <li key={tag._id}><a href={'/posts?tag=' + tag.name}>#{tag.name}</a></li>
             })}
           </ListOfTags>
         </Tags>

@@ -66,10 +66,10 @@ class Post extends Component {
                     Categories:  <a href="#">{post.category}</a> Tags:  {
                       Array.isArray(post.tags) ?
                         post.tags.map(function(tag, index) {
-                          return <a href="#" key={tag}>#{tag}</a>
+                          return <a href={'/posts?tag=' + tag} key={tag}>#{tag}</a>
                         })
                       :
-                        <a href="#" key={post.tags}>#{post.tags}</a>
+                        <a href={'/posts?tag=' + post.tags} key={post.tags}>#{post.tags}</a>
                     }
                   </p>
 				</div>

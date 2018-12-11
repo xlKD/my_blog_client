@@ -159,7 +159,9 @@ class Nav extends Component {
                       <DropdownMenu className="dropdown-menu show" aria-labelledby="dropdown04">
                         {
                           this.state.categories !== null && this.state.categories.map(category => (
-                      	    <a className="dropdown-item" key={category._id} href="#">{category.name}</a>
+                            <a className="dropdown-item" key={category._id} href={'/posts?category=' + category.name}>
+                              {category.name}
+                            </a>
                           ))
                         }
                       </DropdownMenu>
@@ -167,9 +169,6 @@ class Nav extends Component {
                   </li>
                   <li className="nav-item">
                     <NavLink className="nav-link" href="about.html">About</NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" href="contact.html">Contact</NavLink>
                   </li>
                 </ul>
               </div>
