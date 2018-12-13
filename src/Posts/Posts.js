@@ -74,6 +74,17 @@ class Posts extends Component {
     });
   }
 
+  async componentWillReceiveProps(nextProps) {
+    if ( this.props.location.search !== nextProps.location.search ) {
+      const getUrl = 'https://admin.hung-nq.tk/api/posts' + nextProps.location.search;
+      const posts = (await axios.get(getUrl)).data;
+
+      this.setState({
+        posts,
+      });
+    }
+  }
+
   render() {
     return (
       <section className="site-section py-sm">

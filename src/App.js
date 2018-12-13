@@ -55,7 +55,8 @@ class App extends Component {
         <GlobalStyle />
         <Header />
         <Route exact path='/' component={Posts}/>
-        <Route exact path='/post/:postId' component={Post}/>
+        <Route path='/posts' component={Posts}/>
+        <Route path='/post/:postId' component={Post}/>
         <Footer />
       </div>
     );

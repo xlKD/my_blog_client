@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -141,7 +142,11 @@ class Nav extends Component {
                 <AbsoluteToggle className="d-block d-md-none" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbarMenu" onClick={this.onClickHamburgerBtn}>
                   <span className="burger-lines"></span>
                 </AbsoluteToggle>
-                <SiteLogo><a href="/">HungNQ</a></SiteLogo>
+                <SiteLogo>
+                  <Link to={`/`}>
+                    HungNQ
+                  </Link>
+                </SiteLogo>
               </div>
             </div>
           </div>
@@ -154,14 +159,14 @@ class Nav extends Component {
                     <NavLink className="nav-link active" href="/">Home</NavLink>
                   </li>
                   <li className="nav-item dropdown" onMouseOver={this.onHover} onMouseLeave={this.onLeave}>
-                    <NavLink className="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</NavLink>
+                    <NavLink className="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</NavLink>
                     {this.state.show === true &&
                       <DropdownMenu className="dropdown-menu show" aria-labelledby="dropdown04">
                         {
                           this.state.categories !== null && this.state.categories.map(category => (
-                            <a className="dropdown-item" key={category._id} href={'/posts?category=' + category.name}>
+                            <Link to={`/posts?category=${category.name}`} className="dropdown-item" key={category._id}>
                               {category.name}
-                            </a>
+                            </Link>
                           ))
                         }
                       </DropdownMenu>
