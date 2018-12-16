@@ -35,10 +35,10 @@ function Bio() {
   return (
     <BioBox>
       <Bio className="text-center">
-        <img src="http://localhost:3000/images/person_1.jpg" className="img-fluid" alt="" />
+        <img src="/ava.jpg" className="img-fluid" alt="" />
         <div className="bio-body">
           <h2>NGUYEN QUOC HUNG</h2>
-          <p>Husband, Web developer, PC gamer, Figure Collector and Noodle Lover</p>
+          <p>Husband, Web developer, Gamer, Figure Collector and Noodle Lover</p>
           <p className="social">
             <a href="https://twitter.com/hung_xlkd" className="p-2"><span className="fa fa-facebook"></span></a>
             <a href="https://www.instagram.com/hungxlkd" className="p-2"><span className="fa fa-twitter"></span></a>

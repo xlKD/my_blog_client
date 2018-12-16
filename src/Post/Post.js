@@ -1,6 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 import hljs from 'highlight.js';
 import sql from 'highlight.js/lib/languages/sql';
 const RecentPosts = React.lazy(() => import('./RecentPosts'));
@@ -63,13 +64,15 @@ class Post extends Component {
 				
 				<div className="pt-5">
 				  <p>
-                    Categories:  <a href="#">{post.category}</a> Tags:  {
+                    Categories:  <Link to={`/posts?category=${post.category}`}>{post.category}</Link> Tags:  {
                       Array.isArray(post.tags) ?
                         post.tags.map(function(tag, index) {
-                          return <a href={'/posts?tag=' + tag} key={tag}>#{tag}</a>
+                          return <Link to={`/posts?tag=${tag}`} key={tag}>#{tag}</Link>
                         })
                       :
-                        <a href={'/posts?tag=' + post.tags} key={post.tags}>#{post.tags}</a>
+                        <Link to={`/posts?tag=${post.tags}`} key={post.tags}>
+                          #{post.tags}
+                        </Link>
                     }
                   </p>
 				</div>
