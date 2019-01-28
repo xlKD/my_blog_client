@@ -46,6 +46,11 @@ const GlobalStyle = createGlobalStyle`
   	color: #000;
   	font-family: "Tahoma", arial, sans-serif;
   }
+
+  .blockquote {
+    padding-left: 30px;
+    border-left: 10px solid #e6e6e6;
+  }
 `;
 
 class App extends Component {
