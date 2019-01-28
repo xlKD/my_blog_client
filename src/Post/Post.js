@@ -40,6 +40,7 @@ class Post extends Component {
       post,
     });
 
+    hljs.initHighlighting.called = false;
     hljs.registerLanguage('sql', sql);
     hljs.initHighlighting();
   }
