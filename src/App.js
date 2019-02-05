@@ -24,7 +24,7 @@ const Posts = Loadable({
 const GlobalStyle = createGlobalStyle`
   body {
 	background: #fff;
-	font-family: "Tahoma", arial, sans-serif;
+	font-family: Tahoma, ArialMT, Arial;
     font-weight: 300;
     font-size: 18px;
     line-height: 1.9;
@@ -44,7 +44,6 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5 {
   	color: #000;
-  	font-family: "Tahoma", arial, sans-serif;
   }
 
   .blockquote {
