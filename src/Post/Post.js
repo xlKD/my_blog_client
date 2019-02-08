@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import hljs from 'highlight.js';
 import sql from 'highlight.js/lib/languages/sql';
+import Category from '../Category/Category';
 const RecentPosts = React.lazy(() => import('./RecentPosts'));
 const TagsList = React.lazy(() => import('./TagsList'));
 const Bio = React.lazy(() => import('../Middle/Bio'));
@@ -11,18 +12,6 @@ const Bio = React.lazy(() => import('../Middle/Bio'));
 const MainContent = styled.div`
   padding-top: 3em;
   padding-bottom: 5em;
-`;
-
-const Category = styled.span`
-  display: inline-block;
-  background: #007bff;
-  padding: 2px 8px;
-  line-height: 1.5;
-  font-size: 12px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  color: #fff !important;
-  margin-right: 10px;
 `;
 
 class Post extends Component {
@@ -58,7 +47,7 @@ class Post extends Component {
 			  <MainContent className="col-md-10 offset-md-1 main-content">
 				<h1 className="mb-4">{post.title}</h1>
 				<div className="post-meta">
-				  <Category>{post.category}</Category>
+				  <Category label={post.category} />
 				  <span className="mr-2">{post.created_at}</span>
 				</div>
 				<div dangerouslySetInnerHTML={{__html: post.content}} />
@@ -71,9 +60,12 @@ class Post extends Component {
                           return <Link to={`/posts?tag=${tag}`} key={tag}>#{tag}</Link>
                         })
                       :
-                        <Link to={`/posts?tag=${post.tags}`} key={post.tags}>
-                          #{post.tags}
-                        </Link>
+                        post.tags ?
+                          <Link to={`/posts?tag=${post.tags}`} key={post.tags}>
+                            #{post.tags}
+                          </Link>
+                        :
+                          ''
                     }
                   </p>
 				</div>

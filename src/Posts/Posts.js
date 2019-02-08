@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import Category from '../Category/Category';
 
 const Filter = styled.div`
   margin-top: 5px;
@@ -48,19 +49,6 @@ const PostEntrySidebar = styled.div`
 	font-size: 14px;
     color: #b3b3b3;
   }
-`;
-
-const Category = styled.div`
-  display: inline-block;
-  background: #007bff;
-  padding: 2px 8px;
-  line-height: 1.5;
-  font-size: 12px;
-  font-style: italic;
-  border-radius: 4px;
-  text-transform: uppercase;
-  color: #fff !important;
-  margin-right: 10px;
 `;
 
 class Posts extends Component {
@@ -126,7 +114,7 @@ class Posts extends Component {
                           <div className="text">
                             <h4>{post.title}</h4>
                             <div className="post-meta">
-							  <Category>{post.category}</Category>
+                              <Category label={post.category} />
                               <span className="mr-2">{post.created_at}</span>
                             </div>
                           </div>

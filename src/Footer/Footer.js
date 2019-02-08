@@ -8,6 +8,7 @@ function Footer() {
     background-repeat: no-repeat;
     padding: 1em 0;
     background: #000;
+    font-size: 1rem;
   `;
 
   return (
@@ -15,7 +16,7 @@ function Footer() {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            ©<script>document.write(new Date().getFullYear());</script>2018 HungNQ All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a>
+            ©{new Date().getFullYear()} HungNQ All rights reserved | This template is made with <i className="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="noopener noreferrer">Colorlib</a>
           </div>
         </div>
       </div>
