@@ -14,6 +14,10 @@ const MainContent = styled.div`
   padding-bottom: 5em;
 `;
 
+const PostMeta = styled.div`
+  padding-bottom: 1em;
+`;
+
 class Post extends Component {
   constructor(props) {
     super(props);
@@ -46,11 +50,11 @@ class Post extends Component {
 			<div className="row blog-entries">
 			  <MainContent className="col-md-10 offset-md-1 main-content">
 				<h1 className="mb-4">{post.title}</h1>
-				<div className="post-meta">
+				<PostMeta>
 				  <Category label={post.category} />
 				  <span className="mr-2">{post.created_at}</span>
-				</div>
-				<div dangerouslySetInnerHTML={{__html: post.content}} />
+				</PostMeta>
+				<div className="post-content" dangerouslySetInnerHTML={{__html: post.content}} />
 				
 				<div className="pt-5">
 				  <p>

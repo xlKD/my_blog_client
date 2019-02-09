@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, keyframes } from 'styled-components';
 
 function Loading() {
   return <div>...</div>;
@@ -21,6 +21,19 @@ const Posts = Loadable({
   loading: Loading
 });
 
+const FadeIn = keyframes`
+   from {
+     opacity: 0;
+     visibility: hidden;
+     transform: translate3d(0, 40px, 0);
+   }
+
+   to {
+     opacity: 1;
+     visibility: visible;
+     transform: none;
+   }
+`;
 const GlobalStyle = createGlobalStyle`
   body {
 	background: #fff;
@@ -49,6 +62,12 @@ const GlobalStyle = createGlobalStyle`
   .blockquote {
     padding-left: 30px;
     border-left: 10px solid #e6e6e6;
+  }
+
+ .imgFadeIn {
+    animation-name: ${FadeIn};
+    animation-duration: 1s;
+    animation-fill-mode: both;
   }
 `;
 
