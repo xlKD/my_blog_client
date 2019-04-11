@@ -4,6 +4,8 @@ import Loadable from 'react-loadable';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import { createGlobalStyle, keyframes } from 'styled-components';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function Loading() {
   return <div>...</div>;
@@ -68,6 +70,14 @@ const GlobalStyle = createGlobalStyle`
     animation-name: ${FadeIn};
     animation-duration: 1s;
     animation-fill-mode: both;
+  }
+
+  .slick-thumb {
+    bottom: -60px;
+
+    li {
+      width: 50px;
+    }
   }
 `;
 

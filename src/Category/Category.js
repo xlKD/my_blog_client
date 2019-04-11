@@ -6,7 +6,7 @@ class Category extends Component {
     const theme = {
       'Web Development': '#007bff',
       'Noodles': '#dc3545',
-      'Figures': '#007bff'
+      'Figures': '#1e7e34'
     };
 
     const Label = styled.span`

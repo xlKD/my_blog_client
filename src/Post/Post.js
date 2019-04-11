@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import hljs from 'highlight.js';
 import sql from 'highlight.js/lib/languages/sql';
 import Category from '../Category/Category';
+const ImageSlide = React.lazy(() => import('./ImageSlide'));
 const RecentPosts = React.lazy(() => import('./RecentPosts'));
 const TagsList = React.lazy(() => import('./TagsList'));
 const Bio = React.lazy(() => import('../Middle/Bio'));
@@ -40,7 +41,18 @@ class Post extends Component {
 
   render() {
     const {post} = this.state;
-    if (post === null) return <div>...</div>;
+	let content;
+
+    if (post === null) {
+	  return <div>...</div>;
+	} else {
+	  content = post.category === 'Figures' ?
+        <Suspense fallback={<div>...</div>}>
+		  <ImageSlide postId={post._id} />
+        </Suspense>
+	  :
+		<div className="post-content" dangerouslySetInnerHTML={{__html: post.content}} />
+	}
 
     return (
 	  <div>
@@ -54,7 +66,8 @@ class Post extends Component {
 				  <Category label={post.category} />
 				  <span className="mr-2">{post.created_at}</span>
 				</PostMeta>
-				<div className="post-content" dangerouslySetInnerHTML={{__html: post.content}} />
+
+				{content}
 				
 				<div className="pt-5">
 				  <p>
