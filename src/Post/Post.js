@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom';
 import hljs from 'highlight.js';
 import sql from 'highlight.js/lib/languages/sql';
 import Category from '../Category/Category';
+import PostContentPlaceholder from '../Placeholder/PostContentPlaceholder';
+import ImagePlaceholder from '../Placeholder/ImagePlaceholder';
 const ImageSlide = React.lazy(() => import('./ImageSlide'));
 const RecentPosts = React.lazy(() => import('./RecentPosts'));
 const TagsList = React.lazy(() => import('./TagsList'));
@@ -44,10 +46,10 @@ class Post extends Component {
 	let content;
 
     if (post === null) {
-	  return <div>...</div>;
+	  return <PostContentPlaceholder/>;
 	} else {
 	  content = post.category === 'Figures' ?
-        <Suspense fallback={<div>...</div>}>
+        <Suspense fallback={<ImagePlaceholder/>}>
 		  <ImageSlide postId={post._id} />
         </Suspense>
 	  :

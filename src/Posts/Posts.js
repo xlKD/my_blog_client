@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Category from '../Category/Category';
+import PostListPlaceholder from '../Placeholder/PostListPlaceholder';
 
 const Filter = styled.div`
   margin-top: 5px;
@@ -106,7 +107,7 @@ class Posts extends Component {
               <SidebarBox>
 				<PostEntrySidebar>
                   <ul>
-                  {this.state.posts === null && <div>...</div>}
+                  {this.state.posts === null && <PostListPlaceholder/>}
                   {
                     this.state.posts && this.state.posts.map(post => (
                       <li key={post._id}>
