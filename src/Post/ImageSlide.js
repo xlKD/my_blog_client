@@ -8,7 +8,8 @@ const SlideWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
 `;
 
 const Caption = styled.p`
@@ -17,6 +18,8 @@ const Caption = styled.p`
   background: #d3d3d385;
   font-size: 15px;
   text-align: center;
+  width: 80%;
+  margin-left: 10%;
 `;
 
 class ImageSlide extends Component {
@@ -47,6 +50,7 @@ class ImageSlide extends Component {
           </a>
 		);
       },
+      adaptiveHeight: true,
       dots: true,
 	  dotsClass: 'slick-dots slick-thumb',
       infinite: true,

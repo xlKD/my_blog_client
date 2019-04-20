@@ -173,7 +173,7 @@ class Nav extends Component {
                     }
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" href="about.html">About</NavLink>
+                    <NavLink className="nav-link" href="/about">About</NavLink>
                   </li>
                 </ul>
               </div>

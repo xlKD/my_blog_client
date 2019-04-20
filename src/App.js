@@ -23,6 +23,12 @@ const Posts = Loadable({
   loading: Loading
 });
 
+const About = Loadable({
+  loader: () =>
+    import ('./About/About'),
+  loading: Loading
+});
+
 const FadeIn = keyframes`
    from {
      opacity: 0;
@@ -90,6 +96,7 @@ class App extends Component {
         <Route exact path='/' component={Posts}/>
         <Route path='/posts' component={Posts}/>
         <Route path='/post/:postId' component={Post}/>
+        <Route path='/about' component={About}/>
         <Footer />
       </div>
     );

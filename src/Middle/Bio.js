@@ -21,7 +21,6 @@ function Bio() {
     margin-bottom: 4em;
     font-size: 15px;
     width: 100%;
-    float: left;
     background: #fff;
 
     .heading {

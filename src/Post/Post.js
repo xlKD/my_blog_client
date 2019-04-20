@@ -8,7 +8,6 @@ import Category from '../Category/Category';
 import PostContentPlaceholder from '../Placeholder/PostContentPlaceholder';
 import ImagePlaceholder from '../Placeholder/ImagePlaceholder';
 const ImageSlide = React.lazy(() => import('./ImageSlide'));
-const RecentPosts = React.lazy(() => import('./RecentPosts'));
 const TagsList = React.lazy(() => import('./TagsList'));
 const Bio = React.lazy(() => import('../Middle/Bio'));
 
@@ -93,9 +92,6 @@ class Post extends Component {
 			  <div className="col-12 sidebar">
                 <Suspense fallback={<div>...</div>}>
                   <Bio />
-                </Suspense>
-                <Suspense fallback={<div>...</div>}>
-                  <RecentPosts />
                 </Suspense>
                 <Suspense fallback={<div>...</div>}>
                   <TagsList />
