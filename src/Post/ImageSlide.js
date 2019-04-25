@@ -85,7 +85,7 @@ class ImageSlide extends Component {
       dots: isShowDots,
 	  dotsClass: 'slick-dots slick-thumb',
       infinite: true,
-      lazyLoad: true,
+      lazyLoad: false,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
