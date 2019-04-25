@@ -8,18 +8,35 @@ const SlideWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 80%;
-  margin-left: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 500px;
 `;
+
+const NaviImg = styled.img`
+  border-radius: 4px;
+  width: 50px;
+`
 
 const Caption = styled.p`
   padding-top: 7px;
   padding-bottom: 7px;
-  background: #d3d3d385;
   font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #2595ff;
   text-align: center;
   width: 80%;
   margin-left: 10%;
+  margin-bottom: 0;
+`;
+
+const SlideCounter = styled.p`
+  font-size: 15px;
+  text-align: center;
+  color: darkgray;
 `;
 
 class ImageSlide extends Component {
@@ -27,37 +44,51 @@ class ImageSlide extends Component {
     super(props);
     this.state = {
       slide: null,
+      isShowDots: null,
+      currentSlide: 1
     };
   }
 
   async componentDidMount() {
     const postId = this.props.postId;
     const slide = (await axios.get('https://admin.hung-nq.tk/api/slides/by_post/' + postId)).data;
+    const isShowDots = window.innerWidth < 768 ? false : true;
+
     this.setState({
       slide,
+      isShowDots
     });
   }
 
   render() {
-    const {slide} = this.state;
+    const _this = this;
+    const {slide, isShowDots, currentSlide} = this.state;
+
     if (slide === null) return <div>...</div>;
 
+    const slideCount = slide.imgUrls.length;
 	const settings = {
       customPaging: function(i) {
         return (
 		  <a>
-			<img src={slide.imgUrls[i]} width="50" />
+			<NaviImg src={slide.imgUrls[i]}/>
           </a>
 		);
       },
+      beforeChange: function(i) {
+        const currentSlide = (i + 1) % slideCount;
+        _this.setState({
+          currentSlide: currentSlide + 1
+        })
+      },
       adaptiveHeight: true,
-      dots: true,
+      dots: isShowDots,
 	  dotsClass: 'slick-dots slick-thumb',
       infinite: true,
       lazyLoad: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     };
 
     return (
@@ -70,6 +101,11 @@ class ImageSlide extends Component {
 		    </div>
           ))}
 	    </Slider> 
+        {isShowDots === false ?
+          <SlideCounter>--- {currentSlide + ' out of ' + slideCount} ---</SlideCounter>
+        :
+          ''
+        }
       </SlideWrapper>
     )
   }

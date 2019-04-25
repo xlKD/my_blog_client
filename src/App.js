@@ -84,6 +84,15 @@ const GlobalStyle = createGlobalStyle`
     li {
       width: 50px;
     }
+
+    li img {
+      filter: grayscale(100%);
+    }
+
+    li.slick-active img {
+      filter: grayscale(0);
+      transform: scale(1.1);
+    }
   }
 `;
 
