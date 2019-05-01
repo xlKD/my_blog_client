@@ -102,7 +102,7 @@ class Posts extends Component {
       <section className="site-section py-sm">
         <div className="container">
           <div className="row blog-entries">
-            <div className="col-12 offset-md-2 offset-lg-3">
+            <div className="col-lg-9 col-md-10 offset-md-2 offset-lg-3">
               {this.state.filter && <Filter>{this.state.filter.key}: {this.state.filter.value}</Filter>}
               <SidebarBox>
 				<PostEntrySidebar>

@@ -26,7 +26,7 @@ const Caption = styled.p`
   font-size: 15px;
   line-height: 1.6;
   font-style: italic;
-  color: #2595ff;
+  color: #007bffa6;
   text-align: center;
   width: 80%;
   margin-left: 10%;

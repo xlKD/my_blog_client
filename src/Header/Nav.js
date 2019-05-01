@@ -137,7 +137,7 @@ class Nav extends Component {
       return (
         <div>
           <div className="container logo-wrap">
-            <div className="row pt-5">
+            <div className="row pt-3">
               <div className="col-12 text-center">
                 <AbsoluteToggle className="d-block d-md-none" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbarMenu" onClick={this.onClickHamburgerBtn}>
                   <span className="burger-lines"></span>

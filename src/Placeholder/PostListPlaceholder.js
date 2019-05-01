@@ -31,6 +31,12 @@ class PostListPlaceholder extends Component {
     return (
       <div>
         <TitlePlaceholder/>
+        <div className="pb-5">
+          <CategoryPlaceholder/>
+          <DatePlaceholder/>
+        </div>
+
+        <TitlePlaceholder/>
         <div>
           <CategoryPlaceholder/>
           <DatePlaceholder/>

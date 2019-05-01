@@ -39,9 +39,9 @@ function Bio() {
           <h2>NGUYEN QUOC HUNG</h2>
           <p>Husband, Web developer, Gamer, Figure Collector and Noodle Lover</p>
           <p className="social">
-            <a href="https://twitter.com/hung_xlkd" className="p-2"><span className="fa fa-facebook"></span></a>
-            <a href="https://www.instagram.com/hungxlkd" className="p-2"><span className="fa fa-twitter"></span></a>
-            <a href="https://twitter.com/hung_xlkd" className="p-2"><span className="fa fa-instagram"></span></a>
+            <a href="https://twitter.com/hung_xlkd" target="_brank" className="p-2"><span className="fa fa-twitter"></span></a>
+            <a href="https://www.facebook.com/marc0.zeus" target="_brank" className="p-2"><span className="fa fa-facebook"></span></a>
+            <a href="https://www.instagram.com/hungxlkd" target="_brank" className="p-2"><span className="fa fa-instagram"></span></a>
           </p>
         </div>
       </Bio>
