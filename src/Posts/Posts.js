@@ -77,7 +77,13 @@ class Posts extends Component {
     const posts = (await axios.get(getUrl)).data;
     let filter = null;
 
-    if ( queryString.indexOf('?tag=') > -1 ) {
+    if ( queryString.indexOf('?keyword=') > -1 ) {
+      const value = queryString.substr(queryString.indexOf('?keyword=') + 9);
+      filter = {
+        key: 'Posts contain',
+        value: value
+      }
+    } else if ( queryString.indexOf('?tag=') > -1 ) {
       const value = queryString.substr(queryString.indexOf('?tag=') + 5);
       filter = {
         key: 'Tag',
@@ -123,7 +129,7 @@ class Posts extends Component {
                       </li>
                     ))
                   }
-                </ul>
+                  </ul>
 				</PostEntrySidebar>
               </SidebarBox>
             </div>

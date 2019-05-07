@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -32,15 +32,17 @@ const About = Loadable({
 class App extends Component {
   render() {
     return (
-      <div>
-        <GlobalStyle />
-        <Header />
-        <Route exact path='/' component={Posts}/>
-        <Route path='/posts' component={Posts}/>
-        <Route path='/post/:postId' component={Post}/>
-        <Route path='/about' component={About}/>
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div>
+          <GlobalStyle />
+          <Header />
+          <Route exact path='/' component={Posts}/>
+          <Route path='/posts' component={Posts}/>
+          <Route path='/post/:postId' component={Post}/>
+          <Route path='/about' component={About}/>
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }

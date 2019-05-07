@@ -8,11 +8,13 @@ class PostListPlaceholder extends Component {
     const TitlePlaceholder = styled.div`
       background: ${background};
       width: 50%;
+      min-width: 300px;
       height: 15px;
     `;
 
     const CategoryPlaceholder = styled.div`
       width: 10%;
+      min-width: 50px;
       height: 15px;
       margin-top: 10px;
       background: ${background};
@@ -21,6 +23,7 @@ class PostListPlaceholder extends Component {
 
     const DatePlaceholder = styled.div`
       width: 10%;
+      min-width: 50px;
       height: 15px;
       margin-top: 10px;
       margin-left: 10px;

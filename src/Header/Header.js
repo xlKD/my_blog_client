@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import styled from 'styled-components';
-const Nav = React.lazy(() => import('./Nav'));
+import SearchForm from './SearchForm';
+import Nav from './Nav';
 
 function Header() {
   const Header = styled.header`
@@ -57,37 +58,6 @@ function Header() {
     }
   `;
 
-  const SearchTop = styled.div`
-    .search-top-form {
-      position: relative;
-      float: right;
-    }
-
-	.icon {
-	  position: absolute;
-      right: 10px;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      font-size: 15px;
-      color: #fff;
-	}
-
-	input {
-	  color: #fff;
-      background: #212121;
-      width: inherit;
-      min-width: 300px;
-      border: none;
-      -webkit-transition: .3s all ease;
-      -o-transition: .3s all ease;
-      transition: .3s all ease;
-      padding: 4px 30px 4px 15px;
-      font-size: 16px;
-	}
-  `;
-
   return (
     <Header role="banner">
       <TopBar>
@@ -98,19 +68,12 @@ function Header() {
               <a href="https://www.facebook.com/marc0.zeus" target="_brank"><span className="fa fa-facebook"></span></a>
               <a href="https://www.instagram.com/hungxlkd" target="_brank"><span className="fa fa-instagram"></span></a>
             </div>
-            <SearchTop className="col-3">
-              <form action="#" className="search-top-form">
-                <span className="icon fa fa-search"></span>
-                <input type="text" id="s" placeholder="-WIP-" />
-              </form>
-            </SearchTop>
+            <SearchForm />
           </div>
         </div>
       </TopBar>
 
-      <Suspense fallback={<div>...</div>}>
-        <Nav />
-      </Suspense>
+      <Nav />
     </Header>
   );
 }
