@@ -66,6 +66,11 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .slick-initialized .slick-track {
+    display: flex;
+    align-items: center;
+  }
+
   .post-content {
     i.fa {
       width: 20px;
