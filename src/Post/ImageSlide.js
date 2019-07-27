@@ -75,10 +75,9 @@ class ImageSlide extends Component {
           </a>
 		);
       },
-      beforeChange: function(i) {
-        const currentSlide = (i + 1) % slideCount;
+      afterChange: function(i) {
         _this.setState({
-          currentSlide: currentSlide + 1
+          currentSlide: i + 1
         })
       },
       dots: isShowDots,
