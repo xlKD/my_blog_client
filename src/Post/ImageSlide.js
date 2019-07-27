@@ -81,7 +81,6 @@ class ImageSlide extends Component {
           currentSlide: currentSlide + 1
         })
       },
-      adaptiveHeight: true,
       dots: isShowDots,
 	  dotsClass: 'slick-dots slick-thumb',
       infinite: true,

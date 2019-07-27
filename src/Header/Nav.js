@@ -118,11 +118,21 @@ class Nav extends Component {
   }
 
   onHover = () => {
-    this.setState({ show: true });
+    if ( this.state.showMobileNav === false ) {
+      this.setState({ show: true });
+    }
   }
 
   onLeave = () => {
-    this.setState({ show: false });
+    if ( this.state.showMobileNav === false ) {
+      this.setState({ show: false });
+    }
+  }
+
+  onClick = () => {
+    if ( this.state.showMobileNav === true ) {
+      this.setState({ show: !this.state.show });
+    }
   }
 
   onClickHamburgerBtn = () => {
@@ -158,7 +168,7 @@ class Nav extends Component {
                   <li className="nav-item">
                     <NavLink className="nav-link active" href="/">Home</NavLink>
                   </li>
-                  <li className="nav-item dropdown" onMouseOver={this.onHover} onMouseLeave={this.onLeave}>
+                  <li className="nav-item dropdown" onMouseOver={this.onHover} onMouseLeave={this.onLeave} onClick={this.onClick}>
                     <NavLink className="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</NavLink>
                     {this.state.show === true &&
                       <DropdownMenu className="dropdown-menu show" aria-labelledby="dropdown04">
