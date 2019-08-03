@@ -7,9 +7,11 @@ import sql from 'highlight.js/lib/languages/sql';
 import Category from '../Category/Category';
 import PostContentPlaceholder from '../Placeholder/PostContentPlaceholder';
 import ImagePlaceholder from '../Placeholder/ImagePlaceholder';
+
 const ImageSlide = React.lazy(() => import('./ImageSlide'));
 const TagsList = React.lazy(() => import('./TagsList'));
 const Bio = React.lazy(() => import('../Middle/Bio'));
+const API_SERVER = require('../APIServer.js');
 
 const MainContent = styled.div`
   padding-top: 3em;
@@ -30,7 +32,7 @@ class Post extends Component {
 
   async componentDidMount() {
     const { match: { params } } = this.props;
-    const post = (await axios.get(`https://admin.hung-nq.tk/api/posts/${params.postId}`)).data;
+    const post = (await axios.get(API_SERVER + `/api/posts/${params.postId}`)).data;
     this.setState({
       post,
     });

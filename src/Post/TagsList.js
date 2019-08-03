@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
+const API_SERVER = require('../APIServer.js');
+
 const Tags = styled.div`
   font-size: 15px;
   width: 100%;
@@ -47,7 +49,7 @@ class TagsList extends Component {
   }
 
   async componentDidMount() {
-    const tags = (await axios.get('https://admin.hung-nq.tk/api/tags')).data;
+    const tags = (await axios.get(API_SERVER + '/api/tags')).data;
     this.setState({
       tags,
     });

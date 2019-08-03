@@ -3,6 +3,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Slider from "react-slick";
 
+const API_SERVER = require('../APIServer.js');
+
 const SlideWrapper = styled.div`
   margin-bottom: 70px;
 `;
@@ -51,7 +53,7 @@ class ImageSlide extends Component {
 
   async componentDidMount() {
     const postId = this.props.postId;
-    const slide = (await axios.get('https://admin.hung-nq.tk/api/slides/by_post/' + postId)).data;
+    const slide = (await axios.get(API_SERVER + '/api/slides/by_post/' + postId)).data;
     const isShowDots = window.innerWidth < 768 ? false : true;
 
     this.setState({

@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Category from '../Category/Category';
 import PostListPlaceholder from '../Placeholder/PostListPlaceholder';
 
+const API_SERVER = require('../APIServer.js');
+
 const Filter = styled.div`
   margin-top: 5px;
   color: #000;
@@ -88,7 +90,7 @@ class Posts extends Component {
 
   async fetchPosts(props) {
     const queryString = props.location.search === '' ? '?offset=' + this.state.offset : props.location.search + '&offset=' + this.state.offset;
-    const getUrl = 'http://localhost:3000/api/posts' + queryString;
+    const getUrl = API_SERVER + '/api/posts' + queryString;
     const result = (await axios.get(getUrl)).data;
     let filter = null;
 

@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
+const API_SERVER = require('../APIServer.js');
+
 const NavLink = styled.a`
   padding: 1.7rem 1rem;
   font-size: 13px;
@@ -111,7 +113,7 @@ class Nav extends Component {
   }
 
   async componentDidMount() {
-    const categories = (await axios.get(`https://admin.hung-nq.tk/api/categories`)).data;
+    const categories = (await axios.get(API_SERVER + '/api/categories')).data;
     this.setState({
       categories,
     });
