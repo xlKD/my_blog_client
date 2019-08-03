@@ -9,6 +9,7 @@ function Footer() {
     padding: 1em 0;
     background: #000;
     font-size: 1rem;
+    margin-top: 4em;
   `;
 
   return (

@@ -3,7 +3,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const Tags = styled.div`
-  margin-bottom: 4em;
   font-size: 15px;
   width: 100%;
   float: left;

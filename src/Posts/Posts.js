@@ -12,7 +12,6 @@ const Filter = styled.div`
 `;
 
 const SidebarBox = styled.div`
-  margin-bottom: 4em;
   font-size: 15px;
   width: 100%;
   float: left;
@@ -28,8 +27,7 @@ const PostEntrySidebar = styled.div`
   
 	li {
 	  list-style: none;
-      padding: 0 0 20px 0;
-      margin: 0 0 20px 0;
+      padding: 0 0 25px 0;
 
       a {
 		display: table;
@@ -52,12 +50,22 @@ const PostEntrySidebar = styled.div`
   }
 `;
 
+const LoadMoreBtn = styled.button`
+  border-radius: 2px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 15px;
+`;
+
 class Posts extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       posts: null,
+      offset: 0,
+      isOver: false,
     };
   }
 
@@ -65,16 +73,23 @@ class Posts extends Component {
     this.fetchPosts(this.props);
   }
 
-  async componentWillReceiveProps(nextProps) {
+  async componentWillUpdate(nextProps) {
     if ( this.props.location.search !== nextProps.location.search ) {
-      this.fetchPosts(nextProps);
+      this.setState({
+        posts: null,
+        offset: 0,
+        isOver: false,
+        },
+      function() {
+        this.fetchPosts(nextProps);
+      });
     }
   }
 
   async fetchPosts(props) {
-    const queryString = props.location.search;
-    const getUrl = 'https://admin.hung-nq.tk/api/posts' + queryString;
-    const posts = (await axios.get(getUrl)).data;
+    const queryString = props.location.search === '' ? '?offset=' + this.state.offset : props.location.search + '&offset=' + this.state.offset;
+    const getUrl = 'http://localhost:3000/api/posts' + queryString;
+    const result = (await axios.get(getUrl)).data;
     let filter = null;
 
     if ( queryString.indexOf('?keyword=') > -1 ) {
@@ -98,9 +113,14 @@ class Posts extends Component {
     }
 
     this.setState({
-      posts,
-      filter
+      posts: this.state.posts === null ? result.posts : this.state.posts.concat(result.posts),
+      offset: result.offset,
+      isOver: result.isOver,
     });
+  }
+
+  onClickLoadMoreBtn = () => {
+    this.fetchPosts(this.props);
   }
 
   render() {
@@ -134,6 +154,11 @@ class Posts extends Component {
               </SidebarBox>
             </div>
           </div>
+          {(this.state.isOver === false && this.state.posts !== null) &&
+            <div className="text-center">
+              <LoadMoreBtn onClick={this.onClickLoadMoreBtn}>Load More</LoadMoreBtn>
+            </div>
+          }
         </div>
       </section>
     )
