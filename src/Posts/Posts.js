@@ -53,11 +53,12 @@ const PostEntrySidebar = styled.div`
 `;
 
 const LoadMoreBtn = styled.button`
-  border-radius: 2px;
+  border-radius: 6px;
   width: 150px;
   height: 40px;
   cursor: pointer;
   font-size: 15px;
+  background-color: white;
 `;
 
 class Posts extends Component {
@@ -130,7 +131,7 @@ class Posts extends Component {
       <section className="site-section py-sm">
         <div className="container">
           <div className="row blog-entries">
-            <div className="col-lg-9 col-md-10 offset-md-2 offset-lg-3">
+            <div className="col-lg-6 col-md-10 offset-md-1 offset-lg-3">
               {this.state.filter && <Filter>{this.state.filter.key}: {this.state.filter.value}</Filter>}
               <SidebarBox>
 				<PostEntrySidebar>

@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
 	background: #fff;
 	font-family: Tahoma, ArialMT, Arial;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.9;
     color: #6c757d;
   }

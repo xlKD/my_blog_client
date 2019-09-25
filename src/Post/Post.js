@@ -64,7 +64,7 @@ class Post extends Component {
 			
 			<div className="row blog-entries">
 			  <MainContent className="col-md-10 offset-md-1 main-content">
-				<h1 className="mb-4">{post.title}</h1>
+				<h2 className="mb-4">{post.title}</h2>
 				<PostMeta>
 				  <Category label={post.category} />
 				  <span className="mr-2">{post.created_at}</span>
