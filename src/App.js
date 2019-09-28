@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { StaticRouter } from "react-router"
 import Loadable from 'react-loadable';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -32,7 +33,7 @@ const About = Loadable({
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <StaticRouter>
         <div>
           <GlobalStyle />
           <Header />
@@ -42,7 +43,7 @@ class App extends Component {
           <Route path='/about' component={About}/>
           <Footer />
         </div>
-      </BrowserRouter>
+      </StaticRouter>
     );
   }
 }
