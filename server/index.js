@@ -1,4 +1,5 @@
 import express from 'express';
+import Loadable from 'react-loadable';
 import serverRenderer from './middleware/renderer';
 
 const PORT = 3002;
@@ -10,6 +11,9 @@ const router = express.Router();
 
 // root (/) should always serve our server rendered page
 router.use('^/$', serverRenderer);
+router.use('/posts', serverRenderer);
+router.use('/post/:posti_id', serverRenderer);
+router.use('/about', serverRenderer);
 
 // other static resources should just be served as they are
 router.use(express.static(
@@ -21,10 +25,12 @@ router.use(express.static(
 app.use(router);
 
 // start the app
-app.listen(PORT, (error) => {
-    if (error) {
-        return console.log('something bad happened', error);
-    }
+Loadable.preloadAll().then(() => {
+    app.listen(PORT, (error) => {
+        if (error) {
+            return console.log('something bad happened', error);
+        }
 
-    console.log("listening on " + PORT + "...");
+        console.log("listening on " + PORT + "...");
+    });
 });

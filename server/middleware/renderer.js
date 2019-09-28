@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from "react-router"
 import { ServerStyleSheet } from 'styled-components'
 
 // import our main App component
@@ -19,15 +20,26 @@ export default (req, res, next) => {
         }
 
         const sheet = new ServerStyleSheet();
-        // render the app as a string
-        const html = ReactDOMServer.renderToString(sheet.collectStyles(<App />));
+        const context = {};
+        try {
+            // render the app as a string
+            const html = ReactDOMServer.renderToString(sheet.collectStyles(
+                <StaticRouter location={req.url} context={context}>
+                    <App />
+                </StaticRouter>
+            ));
 
-        // inject the rendered app into our html and send it
-        return res.send(
-            htmlData.replace(
-                '<div id="root"></div>',
-                `<div id="root">${html}</div>`
-            )
-        );
+            // inject the rendered app into our html and send it
+            return res.send(
+                htmlData.replace(
+                    '<div id="root"></div>',
+                    `<div id="root">${html}</div>`
+                )
+            );
+        } catch (error) {
+            console.error(error);
+        } finally {
+            sheet.seal();
+        }
     });
 }
