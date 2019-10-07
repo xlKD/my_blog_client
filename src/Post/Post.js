@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import hljs from 'highlight.js';
 import sql from 'highlight.js/lib/languages/sql';
+import nginx from 'highlight.js/lib/languages/nginx';
+import 'highlight.js/styles/default.css';
 import Category from '../Category/Category';
 import PostContentPlaceholder from '../Placeholder/PostContentPlaceholder';
 import ImagePlaceholder from '../Placeholder/ImagePlaceholder';
@@ -37,8 +39,10 @@ class Post extends Component {
       post,
     });
 
+    // TODO: Dynamic register
     hljs.initHighlighting.called = false;
     hljs.registerLanguage('sql', sql);
+    hljs.registerLanguage('nginx', nginx);
     hljs.initHighlighting();
   }
 
