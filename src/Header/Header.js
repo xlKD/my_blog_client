@@ -1,9 +1,12 @@
 import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import styled from 'styled-components';
 import SearchForm from './SearchForm';
 import Nav from './Nav';
+
+config.autoAddCss = false;
 
 function Header() {
   const Header = styled.header`
@@ -45,35 +48,21 @@ function Header() {
 	  }
 	}
   `;
-  const TopBar = styled.div`
-    background: #000;
-    padding: 10px 0;
-
-    .social {
-      text-align:left;
-
-      a {
-        color: #fff;
-        opacity: .5;
-        padding: 6px;
-      }
-    }
-  `;
 
   return (
     <Header role="banner">
-      <TopBar>
+      <div className="top-bar">
         <div className="container">
           <div className="row">
-            <div className="col-9 social">
-              <a href="https://twitter.com/hung_xlkd" target="_brank"><FontAwesomeIcon icon={faTwitter} /></a>
-              <a href="https://www.facebook.com/marc0.zeus" target="_brank"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="https://www.instagram.com/hungxlkd" target="_brank"><FontAwesomeIcon icon={faInstagram} /></a>
+            <div className="col-9 d-none d-sm-block">
+              <a className="icon-sns" href="https://twitter.com/hung_xlkd" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a className="icon-sns" href="https://www.facebook.com/marc0.zeus" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a className="icon-sns" href="https://www.instagram.com/hungxlkd" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
             </div>
             <SearchForm />
           </div>
         </div>
-      </TopBar>
+      </div>
 
       <Nav />
     </Header>

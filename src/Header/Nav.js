@@ -154,11 +154,11 @@ class Nav extends Component {
                 <AbsoluteToggle className="d-block d-md-none" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbarMenu" onClick={this.onClickHamburgerBtn}>
                   <span className="burger-lines"></span>
                 </AbsoluteToggle>
-                <SiteLogo>
+                <h1 className="site-logo">
                   <Link to={`/`}>
                     HungNQ
                   </Link>
-                </SiteLogo>
+                </h1>
               </div>
             </div>
           </div>
