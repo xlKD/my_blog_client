@@ -87,20 +87,6 @@ const AbsoluteToggle = styled.a`
   }
 `;
 
-const maxWidth = '(max-width: 991.98px)';
-const SiteLogo = styled.h1`
-  a {
-    color: #000;
-    font-size: 90px;
-  }
-
-  @media ${maxWidth}  {
-    a {
-      font-size: 40px;
-    }
-  }
-`;
-
 class Nav extends Component {
   constructor(props) {
     super(props);

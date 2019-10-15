@@ -1,5 +1,10 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import styled from 'styled-components';
+
+config.autoAddCss = false;
 
 function Bio() {
   const Bio = styled.div`
@@ -39,9 +44,9 @@ function Bio() {
           <h2>NGUYEN QUOC HUNG</h2>
           <p>Husband, Web developer, Gamer, Figure Collector and Noodle Lover</p>
           <p className="social">
-            <a href="https://twitter.com/hung_xlkd" target="_brank" className="p-2"><span className="fa fa-twitter"></span></a>
-            <a href="https://www.facebook.com/marc0.zeus" target="_brank" className="p-2"><span className="fa fa-facebook"></span></a>
-            <a href="https://www.instagram.com/hungxlkd" target="_brank" className="p-2"><span className="fa fa-instagram"></span></a>
+            <a className="p-2" href="https://twitter.com/hung_xlkd" target="_blank"><FontAwesomeIcon icon={faTwitter} /></a>
+            <a className="p-2" href="https://www.facebook.com/marc0.zeus" target="_blank"><FontAwesomeIcon icon={faFacebookF} /></a>
+            <a className="p-2" href="https://www.instagram.com/hungxlkd" target="_blank"><FontAwesomeIcon icon={faInstagram} /></a>
           </p>
         </div>
       </Bio>
