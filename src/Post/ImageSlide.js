@@ -69,13 +69,13 @@ class ImageSlide extends Component {
     if (slide === null) return <div>...</div>;
 
     const slideCount = slide.imgUrls.length;
-	const settings = {
+	  const settings = {
       customPaging: function(i) {
         return (
-		  <a>
-			<NaviImg src={slide.imgUrls[i]}/>
+		      <a>
+			      <NaviImg src={slide.imgUrls[i]}/>
           </a>
-		);
+		    );
       },
       afterChange: function(i) {
         _this.setState({
@@ -83,9 +83,9 @@ class ImageSlide extends Component {
         })
       },
       dots: isShowDots,
-	  dotsClass: 'slick-dots slick-thumb',
+      dotsClass: 'slick-dots slick-thumb',
       infinite: true,
-      lazyLoad: false,
+      lazyLoad: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
