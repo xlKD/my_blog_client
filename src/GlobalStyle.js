@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .slick-initialized .slick-track {
-    display: flex;
+    display: block;
     align-items: center;
   }
 

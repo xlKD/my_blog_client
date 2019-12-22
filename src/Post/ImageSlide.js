@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Slider from "react-slick";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 
 const API_SERVER = require('../APIServer.js');
 
 const SlideWrapper = styled.div`
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 `;
 
 const Image = styled.img`
@@ -77,15 +79,16 @@ class ImageSlide extends Component {
           </a>
 		    );
       },
-      afterChange: function(i) {
+      beforeChange: function(oldIndex, newIndex) {
         _this.setState({
-          currentSlide: i + 1
+          currentSlide: newIndex + 1
         })
       },
       dots: isShowDots,
       dotsClass: 'slick-dots slick-thumb',
       infinite: true,
       lazyLoad: true,
+      adaptiveHeight: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -102,7 +105,7 @@ class ImageSlide extends Component {
           ))}
 	    </Slider> 
         {isShowDots === false ?
-          <SlideCounter>--- {currentSlide + ' out of ' + slideCount} ---</SlideCounter>
+          <SlideCounter><FontAwesomeIcon icon={faCaretLeft} /> {'Image ' + currentSlide + ' of ' + slideCount} <FontAwesomeIcon icon={faCaretRight} /></SlideCounter>
         :
           ''
         }
