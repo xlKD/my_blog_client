@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
-const API_SERVER = require('../APIServer.js');
+import API_SERVER from '../APIServer.js';
 
 const NavLink = styled.a`
   padding: 1.7rem 1rem;
   font-size: 13px;
   outline: none !important;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 
   @media (max-width: 991.98px) {
     header .navbar .nav-link {
@@ -20,7 +20,7 @@ const NavLink = styled.a`
 
   @media (max-width: 767.98px) {
     header .navbar .nav-link {
-      padding: .5rem 0rem;
+      padding: 0.5rem 0rem;
     }
   }
 `;
@@ -68,22 +68,23 @@ const AbsoluteToggle = styled.a`
     background: #000;
     position: relative;
 
-	&:before, &:after {
-	  position: absolute;
-	  height: 2px;
-	  content: "";
-	  background: #000;
-	  width: 100%;
-	  left: 0;
-	}
+    &:before,
+    &:after {
+      position: absolute;
+      height: 2px;
+      content: '';
+      background: #000;
+      width: 100%;
+      left: 0;
+    }
 
-	&:before {
-	  top: -10px;
-	}
+    &:before {
+      top: -10px;
+    }
 
-	&:after {
-	  bottom: -10px;
-	}
+    &:after {
+      bottom: -10px;
+    }
   }
 `;
 
@@ -94,7 +95,7 @@ class Nav extends Component {
     this.state = {
       show: false,
       showMobileNav: false,
-      categories: null
+      categories: null,
     };
   }
 
@@ -106,80 +107,108 @@ class Nav extends Component {
   }
 
   onHover = () => {
-    if ( this.state.showMobileNav === false ) {
+    if (this.state.showMobileNav === false) {
       this.setState({ show: true });
     }
-  }
+  };
 
   onLeave = () => {
-    if ( this.state.showMobileNav === false ) {
+    if (this.state.showMobileNav === false) {
       this.setState({ show: false });
     }
-  }
+  };
 
   onClick = () => {
-    if ( this.state.showMobileNav === true ) {
+    if (this.state.showMobileNav === true) {
       this.setState({ show: !this.state.show });
     }
-  }
+  };
 
   onClickHamburgerBtn = () => {
-    this.setState(prevState => ({
-      showMobileNav: !prevState.showMobileNav
+    this.setState((prevState) => ({
+      showMobileNav: !prevState.showMobileNav,
     }));
-  }
+  };
 
   render() {
-      const mobileNavClass = this.state.showMobileNav === true ? ' show' : '';
-      const navClassName = 'collapse navbar-collapse' + mobileNavClass;
-      return (
-        <div>
-          <div className="container logo-wrap">
-            <div className="row pt-3">
-              <div className="col-12 text-center">
-                <AbsoluteToggle className="d-block d-md-none" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbarMenu" onClick={this.onClickHamburgerBtn}>
-                  <span className="burger-lines"></span>
-                </AbsoluteToggle>
-                <h1 className="site-logo">
-                  <Link to={`/`}>
-                    HungNQ
-                  </Link>
-                </h1>
-              </div>
+    const mobileNavClass = this.state.showMobileNav === true ? ' show' : '';
+    const navClassName = 'collapse navbar-collapse' + mobileNavClass;
+    return (
+      <div>
+        <div className="container logo-wrap">
+          <div className="row pt-3">
+            <div className="col-12 text-center">
+              <AbsoluteToggle
+                className="d-block d-md-none"
+                data-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="navbarMenu"
+                onClick={this.onClickHamburgerBtn}
+              >
+                <span className="burger-lines"></span>
+              </AbsoluteToggle>
+              <h1 className="site-logo">
+                <Link to={`/`}>HungNQ</Link>
+              </h1>
             </div>
           </div>
-
-          <nav className="navbar navbar-expand-md  navbar-light bg-light">
-            <div className="container">
-              <div className={navClassName} id="navbarMenu">
-                <ul className="navbar-nav mx-auto">
-                  <li className="nav-item">
-                    <NavLink className="nav-link active" href="/">Home</NavLink>
-                  </li>
-                  <li className="nav-item dropdown" onMouseOver={this.onHover} onMouseLeave={this.onLeave} onClick={this.onClick}>
-                    <NavLink className="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</NavLink>
-                    {this.state.show === true &&
-                      <DropdownMenu className="dropdown-menu show" aria-labelledby="dropdown04">
-                        {
-                          this.state.categories !== null && this.state.categories.map(category => (
-                            <Link to={`/posts?category=${category.name}`} className="dropdown-item" key={category._id}>
-                              {category.name}
-                            </Link>
-                          ))
-                        }
-                      </DropdownMenu>
-                    }
-                  </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" href="/about">About</NavLink>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
         </div>
-      );
-    }
+
+        <nav className="navbar navbar-expand-md  navbar-light bg-light">
+          <div className="container">
+            <div className={navClassName} id="navbarMenu">
+              <ul className="navbar-nav mx-auto">
+                <li className="nav-item">
+                  <NavLink className="nav-link active" href="/">
+                    Home
+                  </NavLink>
+                </li>
+                <li
+                  className="nav-item dropdown"
+                  onMouseOver={this.onHover}
+                  onMouseLeave={this.onLeave}
+                  onClick={this.onClick}
+                >
+                  <NavLink
+                    className="nav-link dropdown-toggle"
+                    id="dropdown04"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Categories
+                  </NavLink>
+                  {this.state.show === true && (
+                    <DropdownMenu
+                      className="dropdown-menu show"
+                      aria-labelledby="dropdown04"
+                    >
+                      {this.state.categories !== null &&
+                        this.state.categories.map((category) => (
+                          <Link
+                            to={`/posts?category=${category.name}`}
+                            className="dropdown-item"
+                            key={category._id}
+                          >
+                            {category.name}
+                          </Link>
+                        ))}
+                    </DropdownMenu>
+                  )}
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" href="/about">
+                    About
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    );
   }
+}
 
 export default Nav;

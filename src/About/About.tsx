@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Bio from '../Middle/Bio';
 
@@ -9,14 +9,10 @@ const BioWrapper = styled.div`
   margin-left: 10%;
 `;
 
-class About extends Component {
-  render() {
-    return (
-      <BioWrapper>
-        <Bio />
-      </BioWrapper>
-    )
-  }
+export default function About() {
+  return (
+    <BioWrapper>
+      <Bio />
+    </BioWrapper>
+  );
 }
-
-export default About;

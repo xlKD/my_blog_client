@@ -8,39 +8,36 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 function Loading() {
-  return <div></div>;
+  return <></>;
 }
 
 const Post = Loadable({
-  loader: () =>
-    import ('./Post/Post'),
-  loading: Loading
+  loader: () => import('./Post/Post'),
+  loading: Loading,
 });
 
 const Posts = Loadable({
-  loader: () =>
-    import ('./Posts/Posts'),
-  loading: Loading
+  loader: () => import('./Posts/Posts'),
+  loading: Loading,
 });
 
 const About = Loadable({
-  loader: () =>
-    import ('./About/About'),
-  loading: Loading
+  loader: () => import('./About/About'),
+  loading: Loading,
 });
 
 class App extends Component {
   render() {
     return (
-        <div>
-          <GlobalStyle />
-          <Header />
-          <Route exact path='/' component={Posts}/>
-          <Route path='/posts' component={Posts}/>
-          <Route path='/post/:postId' component={Post}/>
-          <Route path='/about' component={About}/>
-          <Footer />
-        </div>
+      <div>
+        <GlobalStyle />
+        <Header />
+        <Route exact path="/" component={Posts} />
+        <Route path="/posts" component={Posts} />
+        <Route path="/post/:postId" component={Post} />
+        <Route path="/about" component={About} />
+        <Footer />
+      </div>
     );
   }
 }
